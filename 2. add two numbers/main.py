@@ -24,25 +24,26 @@ class Solution:
 
         # return new_ln
 
-    def displayNumbers(new_ln):
-        while (new_ln):
-            print(new_ln.val)
-            new_ln = new_ln.next
+    def displayNumbers(list_node):
+        while (list_node):
+            print(list_node.val)
+            list_node = list_node.next
 
-    
+    def makeLinkedList(nums):
+        list_node = None
+        for i in nums[-1::-1]:
+            new_list_node = ListNode(i)
+            new_list_node.next = list_node
+            list_node = new_list_node
+        return list_node
 
 
 l1 = [2,4,3]
-l2 = [5,6,4]
+l2 = [5,6,7,8,9]
 
-n1 = ListNode(3)
-n2 = ListNode(2)
-n3 = ListNode(1)
+ll1 = Solution.makeLinkedList(l1)
+ll2 = Solution.makeLinkedList(l2)
 
-n1.next = n2
-n2.next = n3
+Solution.displayNumbers(ll2)
 
-
-Solution.displayNumbers(n1)
-
-# Solution.displayNumbers(Solution.addTwoNumbers(l1, l2))
+# Solution.displayNumbers(Solution.addTwoNumbers(ll1, ll2))
